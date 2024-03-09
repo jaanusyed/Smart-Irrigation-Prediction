@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <title>Irrigation prediction</title>
+  </head>
+  <body>
+    
+    <h1>Intelligent Farming System</h1>
+    <div class="container">
+      <div class="crops">
+        <img src="../static/css/irrigation.jpg" alt="" />
+      </div>
+      <div class="form-data">
+        <h3>Enter the data</h3>
+        <form action="{{url_for('predict')}}" method="post">
+          <div class="indiv-input">
+            <label for="place">Enter your place</label>
+            <input type="text" name="place" id="place" required />
+          </div>
+          <div class="indiv-input">
+            <label for="moisture">Soil moisture</label>
+            <input
+              type="number"
+              name="moisture"
+              id="moisture"
+              min="90"
+              max="1000"
+              required
+            />
+          </div>
+          <div class="indiv-input">
+            <label for="crop">Crop Type</label>
+            <select name="crop" id="crop" required>
+              <option value="1">Wheat</option>
+              <option value="2">Ground Nuts</option>
+              <option value="3">Garden Flowers</option>
+              <option value="4">Maize</option>
+              <option value="5">Paddy</option>
+              <option value="6">Potato</option>
+              <option value="7">pulse</option>
+              <option value="8">Sugarcane</option>
+              <option value="9">coffee</option>
+            </select>
+          </div>
+          <div class="indiv-input">
+            <label for="sowing">Date of Sowing</label>
+            <input type="date" name="sowing" id="sowing" required />
+          </div>
+          <div class="indiv-input">
+            <label for="temp">Temperature</label>
+            <input
+              type="number"
+              name="temp"
+              id="temp"
+              min="-100"
+              max="100"
+              required
+            />
+          </div>
+          <div class="indiv-input">
+            <label for="humidity">Humidity</label>
+            <input
+              type="number"
+              name="humidity"
+              id="humidity"
+              min="0"
+              max="100"
+              required
+            />
+          </div>
+          <input class="submit" type="submit" value="Submit" />
+        </form>
+      </div>
+    </div>
+    <div class="prediction">{{prediction_text}}</div>
+  </body>
+</html>
